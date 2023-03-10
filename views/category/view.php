@@ -2,7 +2,8 @@
 <div class="products-breadcrumb">
     <div class="container">
         <ul>
-            <li><i class="fa fa-home" aria-hidden="true"></i><a href="<?= \yii\helpers\Url::home() ?>">Home</a><span>|</span></li>
+            <li><i class="fa fa-home" aria-hidden="true"></i><a
+                        href="<?= \yii\helpers\Url::home() ?>">Home</a><span>|</span></li>
             <li><?= $category->title ?></li>
         </ul>
     </div>
@@ -133,6 +134,15 @@
                     <?php
                     endforeach; ?>
                     <div class="clearfix"></div>
+
+                    <div class="col-md-12">
+                        <?= \yii\widgets\LinkPager::widget([
+                            'pagination' => $pages,
+                            'nextPageCssClass' => 'next test',
+//                        'maxButtonCount' => 3,
+                        ]) ?>
+                    </div>
+
                 </div>
             <?php
             else: ?>
