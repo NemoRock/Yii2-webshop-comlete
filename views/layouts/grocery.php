@@ -15,6 +15,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+    <base href="/">
     <meta charset="<?= Yii::$app->charset ?>">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
@@ -89,10 +90,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 <!-- //header -->
 
-<!-- banner -->
-<div class="banner">
-    <?= $this->render('//layouts/inc/sidebar') ?>
-    <?= $content ?>
+<?= $content ?>
 
     <!-- newsletter -->
     <div class="newsletter">
