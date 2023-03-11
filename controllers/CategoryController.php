@@ -9,21 +9,20 @@ use yii\web\NotFoundHttpException;
 
 class CategoryController extends AppController
 {
+
     public function actionView($id)
     {
         $category = Category::findOne($id);
-        if (empty($category)) {
+        if(empty($category)){
             throw new NotFoundHttpException('Такой категории нет...');
         }
 
         $this->setMeta("{$category->title} :: " . \Yii::$app->name, $category->keywords, $category->description);
 
-//        $products = Product::find()->where(['category_id' => $id])->all();
+        //$products = Product::find()->where(['category_id' => $id])->all();
 
         $query = Product::find()->where(['category_id' => $id]);
-        $pages = new Pagination(
-            ['totalCount' => $query->count(), 'pageSize' => 4, 'forcePageParam' => false, 'pageSizeParam' => false]
-        );
+        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 4, 'forcePageParam' => false, 'pageSizeParam' => false]);
         $products = $query->offset($pages->offset)->limit($pages->limit)->all();
 
         return $this->render('view', compact('products', 'category', 'pages'));
@@ -33,17 +32,15 @@ class CategoryController extends AppController
     {
         $q = trim(\Yii::$app->request->get('q'));
         $this->setMeta("Поиск: {$q} :: " . \Yii::$app->name);
-
-        if (!$q) {
+        if(!$q){
             return $this->render('search');
         }
 
         $query = Product::find()->where(['like', 'title', $q]);
-        $pages = new Pagination(
-            ['totalCount' => $query->count(), 'pageSize' => 4, 'forcePageParam' => false, 'pageSizeParam' => false]
-        );
+        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 4, 'forcePageParam' => false, 'pageSizeParam' => false]);
         $products = $query->offset($pages->offset)->limit($pages->limit)->all();
 
-        return $this->render('search', compact('products', 'pages','q'));
+        return $this->render('search', compact('products', 'pages', 'q'));
     }
+
 }

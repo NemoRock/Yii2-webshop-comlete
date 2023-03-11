@@ -1756,12 +1756,21 @@ img{
 .agile_top_brand_left_grid:hover .snipcart-details a.button, .snipcart-details a.button:hover {
 	background: #84C639;
 }
-.product_list_header span{
+
+.product_list_header button.close span{
 	color: #000;
+	top: 0;
 }
-.logo_products {
-	padding: 2em 0 1em;
+.product_list_header span.del-item{
+	color: #FA1818;
+	top: 0;
+	cursor: pointer;
 }
+#modal-cart img{
+	max-height: 40px;
+}
+
+
 @media (max-width:640px){
 	h1, .h1, h2, .h2, h3, .h3 {
 		margin-top: 0px;

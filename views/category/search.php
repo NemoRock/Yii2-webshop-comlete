@@ -2,8 +2,7 @@
 <div class="products-breadcrumb">
     <div class="container">
         <ul>
-            <li><i class="fa fa-home" aria-hidden="true"></i><a
-                        href="<?= \yii\helpers\Url::home() ?>">Home</a><span>|</span></li>
+            <li><i class="fa fa-home" aria-hidden="true"></i><a href="<?= \yii\helpers\Url::home() ?>">Home</a><span>|</span></li>
             <li>Поиск</li>
         </ul>
     </div>
@@ -20,7 +19,7 @@
         <div class="w3l_banner_nav_right_banner3_btm">
             <div class="col-md-4 w3l_banner_nav_right_banner3_btml">
                 <div class="view view-tenth">
-                    <img src="images/13.jpg" alt=" " class="img-responsive"/>
+                    <img src="images/13.jpg" alt=" " class="img-responsive" />
                     <div class="mask">
                         <h4>Grocery Store</h4>
                         <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
@@ -35,7 +34,7 @@
             </div>
             <div class="col-md-4 w3l_banner_nav_right_banner3_btml">
                 <div class="view view-tenth">
-                    <img src="images/14.jpg" alt=" " class="img-responsive"/>
+                    <img src="images/14.jpg" alt=" " class="img-responsive" />
                     <div class="mask">
                         <h4>Grocery Store</h4>
                         <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
@@ -50,7 +49,7 @@
             </div>
             <div class="col-md-4 w3l_banner_nav_right_banner3_btml">
                 <div class="view view-tenth">
-                    <img src="images/15.jpg" alt=" " class="img-responsive"/>
+                    <img src="images/15.jpg" alt=" " class="img-responsive" />
                     <div class="mask">
                         <h4>Grocery Store</h4>
                         <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
@@ -63,54 +62,38 @@
                     <li>magnam aliquam quaerat</li>
                 </ol>
             </div>
-            <div class="clearfix"></div>
+            <div class="clearfix"> </div>
         </div>
         <div class="w3ls_w3l_banner_nav_right_grid">
             <h3>Поиск: "<?= \yii\helpers\Html::encode($q) ?>"</h3>
-            <?php
-            if (!empty($products)): ?>
+            <?php if(!empty($products)): ?>
                 <div class="w3ls_w3l_banner_nav_right_grid1">
-                    <?php
-                    foreach ($products as $product): ?>
+                    <?php foreach($products as $product): ?>
                         <div class="col-md-3 w3ls_w3l_banner_left">
                             <div class="hover14 column">
                                 <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-                                    <?php
-                                    if ($product->is_offer): ?>
+                                    <?php if($product->is_offer): ?>
                                         <div class="agile_top_brand_left_grid_pos">
-                                            <?= \yii\helpers\Html::img(
-                                                '@web/images/offer.png',
-                                                ['alt' => 'offer', 'class' => 'img-responsive']
-                                            ) ?>
+                                            <?= \yii\helpers\Html::img('@web/images/offer.png', ['alt' => 'offer', 'class' => 'img-responsive']) ?>
                                         </div>
-                                    <?php
-                                    endif; ?>
+                                    <?php endif; ?>
                                     <div class="agile_top_brand_left_grid1">
                                         <figure>
                                             <div class="snipcart-item block">
                                                 <div class="snipcart-thumb">
-                                                    <a href="<?= \yii\helpers\Url::to(
-                                                        ['product/view', 'id' => $product->id]
-                                                    ) ?>">
-                                                        <?= \yii\helpers\Html::img(
-                                                            "@web/products/{$product->img}",
-                                                            ['alt' => $product->title]
-                                                        ) ?>
+                                                    <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $product->id]) ?>">
+                                                        <?= \yii\helpers\Html::img("@web/products/{$product->img}", ['alt' => $product->title]) ?>
                                                     </a>
                                                     <p><?= $product->title ?></p>
                                                     <h4>
                                                         $<?= $product->price ?>
-                                                        <?php
-                                                        if ((float)$product->old_price): ?>
+                                                        <?php if((float)$product->old_price): ?>
                                                             <span>$<?= $product->old_price ?></span>
-                                                        <?php
-                                                        endif; ?>
+                                                        <?php endif; ?>
                                                     </h4>
                                                 </div>
                                                 <div class="snipcart-details">
-                                                    <a href="<?= \yii\helpers\Url::to(['cart/add', 'id' => $product->id]
-                                                    ) ?>" data-id="<?= $product->id ?>" class="button add-to-cart">Add
-                                                        to cart</a>
+                                                    <a href="<?= \yii\helpers\Url::to(['cart/add', 'id' => $product->id]) ?>" data-id="<?= $product->id ?>" class="button add-to-cart">Add to cart</a>
                                                 </div>
                                             </div>
                                         </figure>
@@ -118,9 +101,8 @@
                                 </div>
                             </div>
                         </div>
-                    <?php
-                    endforeach; ?>
-                    <div class="clearfix"></div>
+                    <?php endforeach; ?>
+                    <div class="clearfix"> </div>
 
                     <div class="col-md-12">
                         <?= \yii\widgets\LinkPager::widget([
@@ -131,13 +113,11 @@
                     </div>
 
                 </div>
-            <?php
-            else: ?>
+            <?php else: ?>
                 <div class="w3ls_w3l_banner_nav_right_grid1">
                     <h6>По запросу ничего не найдено...</h6>
                 </div>
-            <?php
-            endif; ?>
+            <?php endif; ?>
         </div>
     </div>
     <div class="clearfix"></div>
