@@ -88,6 +88,7 @@ class CartController extends AppController
             }else{
                 $transaction->commit();
                 \Yii::$app->session->setFlash('success', 'Ваш заказ принят');
+
                 try{
                     \Yii::$app->mailer->compose('order', ['session' => $session])
                         ->setFrom([\Yii::$app->params['senderEmail'] => \Yii::$app->params['senderName']])
@@ -95,8 +96,9 @@ class CartController extends AppController
                         ->setSubject('Заказ на сайте')
                         ->send();
                 }catch (\Swift_TransportException $e){
-//                    debug($e,1);
+                    //var_dump($e); die;
                 }
+
 
                 $session->remove('cart');
                 $session->remove('cart.qty');

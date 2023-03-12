@@ -7,6 +7,7 @@ use yii\base\Widget;
 
 class MenuWidget extends Widget
 {
+
     public $tpl;
     public $ul_class;
     public $data;
@@ -37,27 +38,27 @@ class MenuWidget extends Widget
         $this->tree = $this->getTree();
         $this->menuHtml = '<ul class="' . $this->ul_class . '">';
         $this->menuHtml .= $this->getMenuHtml($this->tree);
-        $this->menuHtml .= '</ul">';
+        $this->menuHtml .= '</ul>';
 
         // set cache
-        \Yii::$app->cache->set('menu',$this->menuHtml, 600);
+        \Yii::$app->cache->set('menu', $this->menuHtml, 60);
         return $this->menuHtml;
     }
 
     protected function getTree(){
         $tree = [];
-        foreach ($this->data as $id=>&$node){
-            if(!$node['parent_id'])
+        foreach ($this->data as $id=>&$node) {
+            if (!$node['parent_id'])
                 $tree[$id] = &$node;
             else
-                $this->data[$node['parent_id']]['children'][$node['id']]= &$node;
+                $this->data[$node['parent_id']]['children'][$node['id']] = &$node;
         }
         return $tree;
     }
 
     protected function getMenuHtml($tree){
         $str = '';
-        foreach ($tree as $category){
+        foreach ($tree as $category) {
             $str .= $this->catToTemplate($category);
         }
         return $str;
