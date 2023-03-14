@@ -32,11 +32,6 @@ class Order extends ActiveRecord
         return 'orders';
     }
 
-    public function getOrderProduct()
-    {
-        return $this->hasMany(OrderProduct::class, ['order_id' => 'id']);
-    }
-
     public function behaviors()
     {
         return [
@@ -79,7 +74,7 @@ class Order extends ActiveRecord
             'qty' => 'Кол-во',
             'total' => 'Сумма',
             'status' => 'Статус',
-            'name' => 'Имя',
+            'name' => 'имя',
             'email' => 'E-mail',
             'phone' => 'Телефон',
             'address' => 'Адрес',
