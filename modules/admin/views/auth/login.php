@@ -7,6 +7,7 @@ use yii\widgets\ActiveForm;
         <p class="login-box-msg">Sign in to start your session</p>
 
         <?php $form = ActiveForm::begin(); ?>
+
         <?= $form->field($model, 'username', ['template' => "<div class='form-group has-feedback'> {input} <span class=\"glyphicon glyphicon-user form-control-feedback\"></span><div>{error}</div></div>",])->textInput(['placeholder' => 'Login']) ?>
 
         <?= $form->field($model, 'password', ['template' => "<div class='form-group has-feedback'> {input} <span class=\"glyphicon glyphicon-lock form-control-feedback\"></span><div>{error}</div></div>",])->passwordInput(['placeholder' => 'Password']) ?>
