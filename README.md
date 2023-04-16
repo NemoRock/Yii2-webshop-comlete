@@ -1,4 +1,4 @@
-Here is a simple online store with a shopping cart, sending orders by e-mail and an administrative part that allows you to perform CRUD operations with orders, product categories and the goods themselves.
+Here is a simple online store with a shopping cart, sending orders by e-mail and an administrative part that allows you to perform CRUD operations with orders, product categories and the goods themselves.<br>
 Information is stored in the database, pictures of products are stored on the server.
 
 How it turned out, see [here](https://xn----jtbhcjiocs5f.xn--p1ai/) or in the screenshots below.
